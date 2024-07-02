@@ -1,4 +1,5 @@
 import json
+import __main__
 from flask import Flask, jsonify, request
 import re,joblib
 import warnings
@@ -9,6 +10,8 @@ def character(inputs):
     for i in inputs:
         characters.append(i)
     return characters
+__main__.character = character
+
 model = joblib.load('model_joblib1')
 app = Flask(__name__)
 
